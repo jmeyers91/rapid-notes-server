@@ -4,13 +4,11 @@ module.exports = rapid =>
 
     return User.query()
       .where('id', id)
-      .eager('notes(withoutContent)', {
-        withoutContent(query) {
-          return query.select('id', 'createdAt', 'updatedAt', 'title');
-        },
-
-        onlyAFew(query) {
-          return query.limit(10);
+      .eager('notes(noteQuery)', {
+        noteQuery(query) {
+          return query
+            .select('id', 'createdAt', 'updatedAt', 'title')
+            .orderBy('createdAt', 'desc');
         }
       })
       .first();
