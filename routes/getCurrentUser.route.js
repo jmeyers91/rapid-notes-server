@@ -1,12 +1,13 @@
 module.exports = rapid => {
-  const { middleware } = rapid;
+  const { middleware, actions } = rapid;
 
   rapid.api.get(
     '/user',
     middleware.auth(),
-    context => {
+    async context => {
+
       context.response.body = {
-        user: context.state.user,
+        user: await actions.getUserById({id: context.state.user.id}),
       };
     }
   );

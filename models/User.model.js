@@ -12,12 +12,10 @@ module.exports = rapid => {
     static get jsonSchema() {
       return {
         type: 'object',
-        required: ['name', 'age', 'username', 'password'],
+        required: ['email', 'password'],
         properties: {
           id: { type: 'integer' },
-          age: { type: 'integer' },
-          name: { type: 'string', minLength: 2 },
-          username: { type: 'string', minLength: 2 },
+          email: { type: 'string', minLength: 3 },
           password: { type: 'string', minLength: 2 }
         }
       };

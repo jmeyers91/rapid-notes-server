@@ -4,15 +4,11 @@ module.exports = async function createUsers(rapid) {
 
   return User.query().insert([
     {
-      name: 'Jim',
-      username: 'jim',
-      age: 26,
+      email: 'jim@test.com',
       password: await hashPassword('secret')
     },
     {
-      name: 'Sarah',
-      username: 'sarah',
-      age: 23,
+      email: 'sarah@test.com',
       password: await hashPassword('pineapple')
     }
   ]);

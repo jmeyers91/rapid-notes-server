@@ -12,7 +12,7 @@ module.exports = rapid =>
       const { User } = rapid.models;
 
       return User.query()
-        .where('username', username)
+        .where('email', username)
         .first();
     }
   );

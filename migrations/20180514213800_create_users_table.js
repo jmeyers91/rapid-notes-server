@@ -3,11 +3,8 @@ exports.up = async knex => {
   return knex.schema.createTable('users', table => {
     table.increments('id').primary();
     table.timestamps(true, true);
-
-    table.string('name').notNullable();
-    table.integer('age').notNullable();
     table
-      .string('username')
+      .string('email')
       .notNullable()
       .unique();
     table.string('password').notNullable();

@@ -10,8 +10,8 @@ exports.up = async knex => {
       .inTable('users')
       .onDelete('CASCADE')
       .notNullable();
-    table.string('title').notNullable();
-    table.string('content').notNullable();
+    table.text('title').notNullable();
+    table.text('content').notNullable();
   });
 };
 

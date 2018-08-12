@@ -15,8 +15,8 @@ module.exports = rapid => {
         required: ['title', 'content'],
         properties: {
           id: { type: 'integer' },
-          title: { type: 'string', minLength: 2 },
-          content: { type: 'string', minLength: 2 }
+          title: { type: 'string' },
+          content: { type: 'string' }
         }
       };
     }
