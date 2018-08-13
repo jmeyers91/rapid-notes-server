@@ -16,6 +16,8 @@ module.exports = rapid => rapid.action(
       .where('id', noteId)
       .first();
 
+    require('fs').writeFile('./content.json', JSON.stringify({content: note.content}, null, 2));
+
     return note.content;
   }
 );

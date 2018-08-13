@@ -1,31 +1,32 @@
+
 module.exports = rapid => {
   const { Model, models } = rapid;
 
-  return class User extends Model {
+  return class Notebook extends Model {
     static get tableName() {
-      return 'users';
+      return 'notebooks';
     }
     static get singularName() {
-      return 'user';
+      return 'notebook';
     }
 
     static get jsonSchema() {
       return {
         type: 'object',
-        required: ['email', 'password'],
+        required: ['ownerId', 'name'],
         properties: {
-          id: { type: 'integer' },
-          email: { type: 'string', minLength: 3 },
-          password: { type: 'string', minLength: 2 }
-        }
+          id: {type: 'integer'},
+          ownerId: {type: 'integer'},
+          name: {type: 'string'}
+        },
       };
     }
 
     static get relationMappings() {
       return {
-        notebooks: {
-          relation: Model.HasManyRelation,
-          modelClass: models.Notebook,
+        owner: {
+          relation: Model.BelongsToOneRelation,
+          modelClass: models.User,
           join: {
             from: 'users.id',
             to: 'notebooks.ownerId'
@@ -36,10 +37,10 @@ module.exports = rapid => {
           relation: Model.HasManyRelation,
           modelClass: models.Note,
           join: {
-            from: 'users.id',
-            to: 'notes.authorId'
+            from: 'notebooks.id',
+            to: 'notes.noteBookId'
           }
-        },
+        }
       };
     }
   };

@@ -4,14 +4,18 @@ exports.up = async knex => {
     table.increments('id').primary();
     table.timestamps(true, true);
 
-    table
-      .integer('author_id')
+    table.integer('author_id')
       .references('id')
       .inTable('users')
       .onDelete('CASCADE')
       .notNullable();
     table.text('title').notNullable();
     table.text('content').notNullable();
+
+    table
+      .integer('notebook_id')
+      .references('id')
+      .inTable('notebooks');
   });
 };
 

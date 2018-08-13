@@ -5,10 +5,10 @@ module.exports = rapid =>
     await actions.deleteBlankNotes({ userId: id });
     return User.query()
       .where('id', id)
-      .eager('notes(noteQuery)', {
+      .eager('[notes(noteQuery), notebooks]', {
         noteQuery(query) {
           return query
-            .select('id', 'createdAt', 'updatedAt', 'title')
+            .select('id', 'createdAt', 'updatedAt', 'title', 'notebookId', 'authorId')
             .orderBy('createdAt', 'desc');
         }
       })
