@@ -20,6 +20,7 @@
   "dependencies": {
     "@simplej/rapid": "0.0.43",
     "@simplej/rapid-cli": "0.0.41",
+    "diff-match-patch": "^1.0.1",
     "npx": "^10.2.0",
     "textdiff-patch": "^1.0.4"
   },

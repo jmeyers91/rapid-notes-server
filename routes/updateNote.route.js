@@ -5,10 +5,10 @@ module.exports = rapid => {
     '/note/:noteId',
     middleware.auth(),
     async context => {
-      const { title, contentPatch } = context.request.body;
+      const { title, contentPatch, content } = context.request.body;
       const { noteId } = context.params;
 
-      await actions.updateNote({ title, contentPatch, noteId });
+      await actions.updateNote({ title, contentPatch, content, noteId });
       context.response.body = {};
     }
   );
