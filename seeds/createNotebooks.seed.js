@@ -1,4 +1,4 @@
-module.exports = async function createNotes(rapid) {
+module.exports = async function createNotebooks(rapid) {
   const faker = require('faker');
   const range = require('lodash/range');
   const sample = require('lodash/sample');

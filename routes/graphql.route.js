@@ -3,7 +3,7 @@ module.exports = rapid => {
 
   rapid.api.post(
     '/graphql', 
-    middleware.auth(), 
+    middleware.auth(),
     rapid.middleware.graphql()
   );
 };

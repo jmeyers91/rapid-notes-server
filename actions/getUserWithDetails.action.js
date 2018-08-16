@@ -8,7 +8,7 @@ module.exports = rapid =>
       .eager('[notes(noteQuery), notebooks]', {
         noteQuery(query) {
           return query
-            .select('id', 'createdAt', 'updatedAt', 'title', 'notebookId', 'authorId')
+            .select('id', 'createdAt', 'updatedAt', 'title', 'notebookId', 'authorId', 'revision')
             .orderBy('createdAt', 'desc');
         }
       })

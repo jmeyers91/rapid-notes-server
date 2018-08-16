@@ -9,6 +9,7 @@ exports.up = async knex => {
       .inTable('users')
       .onDelete('CASCADE')
       .notNullable();
+    table.integer('revision').defaultTo(knex.raw('1'));
     table.text('title').notNullable();
     table.text('content').notNullable();
 
