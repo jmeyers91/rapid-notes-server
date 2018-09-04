@@ -3,7 +3,7 @@ module.exports = rapid => {
 
   return rapid.api.post(
     '/login',
-    middleware.login(actions.login),
+    middleware.login(actions.getUserFromCredentials),
     context => {
       context.response.body = {
         authToken: context.state.authToken,

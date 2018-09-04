@@ -1,21 +1,21 @@
 
 module.exports = rapid => rapid.action(
-  'getNoteContent', 
+  'getNote', 
   {
     type: 'object',
-    required: ['noteId'],
+    required: [ 'noteId' ],
     properties: {
-      noteId: {type: 'integer'}
-    }
+      noteId: { type: 'integer' },
+    },
   }, 
   async ({ noteId }) => {
     const { Note } = rapid.models;
 
     const note = await Note.query()
-      .select('content')
+      .eager('[author,attachments.file]')
       .where('id', noteId)
       .first();
 
-    return note.content;
-  }
+    return note;
+  },
 );

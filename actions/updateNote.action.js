@@ -8,13 +8,13 @@ module.exports = rapid => rapid.action(
   'updateNote', 
   {
     type: 'object',
-    required: ['noteId', 'title'],
+    required: [ 'noteId', 'title' ],
     properties: {
-      noteId: {type: 'integer'},
-      title: {type: 'string'},
-      revision: {type: 'integer'},
-      content: {type: ['string', 'null']}
-    }
+      noteId: { type: 'integer' },
+      title: { type: 'string' },
+      revision: { type: 'integer' },
+      content: { type: ['string', 'null'] },
+    },
   }, 
   async ({ noteId, title, revision, contentPatch, content }) => {
     const { Note } = rapid.models;
@@ -47,5 +47,5 @@ module.exports = rapid => rapid.action(
       .patch(patch)
       .where('id', noteId)
       .first();
-  }
+  },
 );

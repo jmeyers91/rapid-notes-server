@@ -1,13 +1,13 @@
 module.exports = rapid =>
   rapid.action(
-    'login',
+    'getUserFromCredentials',
     {
       type: 'object',
-      required: ['username', 'password'],
+      required: [ 'username', 'password' ],
       properties: {
         username: { type: 'string' },
-        password: { type: 'string' }
-      }
+        password: { type: 'string' },
+      },
     },
     async ({ username, password }) => {
       const { getUserByUsername } = rapid.actions;
@@ -19,5 +19,5 @@ module.exports = rapid =>
         return user;
       }
       return null;
-    }
+    },
   );

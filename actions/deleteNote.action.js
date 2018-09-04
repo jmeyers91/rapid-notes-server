@@ -3,11 +3,11 @@ module.exports = rapid => rapid.action(
   'deleteNote', 
   {
     type: 'object',
-    required: ['userId', 'noteId'],
+    required: [ 'userId', 'noteId' ],
     properties: {
-      userId: {type: 'integer'},
-      noteId: {type: 'integer'},
-    }
+      userId: { type: 'integer' },
+      noteId: { type: 'integer' },
+    },
   }, 
   async ({ noteId, userId }) => {
     const { Note } = rapid.models;
@@ -20,5 +20,5 @@ module.exports = rapid => rapid.action(
         id: noteId,
         authorId: userId
       });
-  }
+  },
 );

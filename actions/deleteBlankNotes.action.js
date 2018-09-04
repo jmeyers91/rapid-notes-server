@@ -3,17 +3,18 @@ module.exports = rapid => rapid.action(
   'deleteBlankNotes', 
   {
     type: 'object',
-    required: ['userId'],
+    required: [ 'userId' ],
     properties: {
-      userId: {type: 'integer'}
-    }
+      userId: { type: 'integer' },
+    },
   }, 
-  async () => {
+  async ({ userId }) => {
     const { Note } = rapid.models;
     await Note
       .query()
       .delete()
       .where('content', '')
-      .andWhere('title', '');
-  }
+      .andWhere('title', '')
+      .andWhere('authorId', userId);
+  },
 );

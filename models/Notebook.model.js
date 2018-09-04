@@ -3,12 +3,8 @@ module.exports = rapid => {
   const { Model, models } = rapid;
 
   return class Notebook extends Model {
-    static get tableName() {
-      return 'notebooks';
-    }
-    static get singularName() {
-      return 'notebook';
-    }
+    static get tableName() { return 'notebooks'; }
+    static get singularName() { return 'notebook'; }
 
     static get jsonSchema() {
       return {

@@ -2,12 +2,8 @@ module.exports = rapid => {
   const { Model, models } = rapid;
 
   return class User extends Model {
-    static get tableName() {
-      return 'users';
-    }
-    static get singularName() {
-      return 'user';
-    }
+    static get tableName() { return 'users'; }
+    static get singularName() { return 'user'; }
 
     static get jsonSchema() {
       return {
@@ -39,6 +35,15 @@ module.exports = rapid => {
             from: 'users.id',
             to: 'notes.authorId'
           }
+        },
+
+        files: {
+          relation: Model.HasManyRelation,
+          modelClass: models.UserFile,
+          join: {
+            from: 'users.id',
+            to: 'user_files.ownerId',
+          },
         },
       };
     }

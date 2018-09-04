@@ -3,10 +3,10 @@ module.exports = rapid =>
     'getUserByUsername',
     {
       type: 'object',
-      required: ['username'],
+      required: [ 'username' ],
       properties: {
-        username: { type: 'string' }
-      }
+        username: { type: 'string' },
+      },
     },
     async ({ username }) => {
       const { User } = rapid.models;
@@ -14,5 +14,5 @@ module.exports = rapid =>
       return User.query()
         .where('email', username)
         .first();
-    }
+    },
   );

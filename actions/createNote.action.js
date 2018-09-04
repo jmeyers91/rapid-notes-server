@@ -3,10 +3,10 @@ module.exports = rapid => rapid.action(
   'createNote', 
   {
     type: 'object',
-    required: ['userId'],
+    required: [ 'userId' ],
     properties: {
-      userId: {type: 'integer'}
-    }
+      userId: { type: 'integer' },
+    },
   }, 
   async ({ userId : authorId }) => {
     const { Note } = rapid.models;
@@ -16,5 +16,5 @@ module.exports = rapid => rapid.action(
     const note = await Note.query().insert({ authorId, title, content }).returning('*');
 
     return note;
-  }
+  },
 );
