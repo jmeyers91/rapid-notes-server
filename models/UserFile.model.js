@@ -1,5 +1,6 @@
 
 module.exports = rapid => {
+  const path = require('path');
   const { Model, models } = rapid;
 
   return class UserFile extends Model {
@@ -29,6 +30,10 @@ module.exports = rapid => {
           },
         },
       };
+    }
+
+    get fullPath() {
+      return path.join(__dirname, '..', 'public', this.path);
     }
   };
 };

@@ -1,7 +1,7 @@
 module.exports = {
   webserver: {
     port: 9090,
-    publicPaths: ['public'],
+    publicPath: 'public',
   },
   database: {
     connection: {
