@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "host": "ngrok http 9090 --subdomain \"rapid-notes\"",
-    "deploy": "git push heroku master",
     "rapid": "npx rapid",
     "start": "npm run rapid",
     "watch": "npm run rapid watch",
