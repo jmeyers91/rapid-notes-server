@@ -19,7 +19,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@simplej/rapid": "0.0.52",
+    "@simplej/rapid": "0.0.56",
     "@simplej/rapid-cli": "0.0.42",
     "del": "^3.0.0",
     "diff-match-patch": "^1.0.1",
