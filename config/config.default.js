@@ -9,5 +9,5 @@ module.exports = {
       password: '',
       database: 'rapid_notes'
     }
-  }
+  },
 };

@@ -1,9 +1,11 @@
+
 exports.up = async knex => {
   if (await knex.schema.hasTable('{{snakeCase name}}')) return;
   return knex.schema.createTable('{{snakeCase name}}', table => {
     table.increments('id').primary();
     table.timestamps(true, true);
 
+    // Relation example:
     // table
     //   .integer('author_id')
     //   .references('id')
