@@ -28,10 +28,10 @@
     "npx": "^10.2.0",
     "textdiff-patch": "^1.0.4",
     "then-fs": "^2.0.0",
+    "faker": "^4.1.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "faker": "^4.1.0",
     "jest": "^23.4.2",
     "plop": "^2.0.0",
     "prettier": "^1.14.0"
